@@ -1,14 +1,18 @@
 {% extends 'padre.html' %}
 
+
+
 {% block cambiante %}
-    <h1>Lista de Clientes</h1>    
+   
+<p class="text-white m-8">
     <ul>
         
         {% for cliente in lista_clientes  %}
-            <li>{{cliente.nombre}} {{cliente.apellido}}</li>            
+                      
         {% endfor %}
             
     </ul>
+         
+</p>
 {% endblock cambiante %}
     
-
