@@ -12,6 +12,8 @@ class Clientes(models.Model):
     
     def __str__(self):
         return f'{self.nombre} - {self.apellido} - {self.numero} - {self.email}'
+    
+    
 
 
 class Celulares(models.Model):
@@ -21,7 +23,7 @@ class Celulares(models.Model):
     precio = models.IntegerField()
     
     def __str__(self):
-        return f'{self.marca} - {self.modelo} - {self.precio}'
+        return f'{self.marca} - {self.modelo} - ${self.precio}'
 
 class Accesorios(models.Model):
     
@@ -30,7 +32,7 @@ class Accesorios(models.Model):
     precio = models.IntegerField()
     
     def __str__(self):
-        return f'{self.marca} - {self.tipo} - {self.precio}'
+        return f'{self.marca} - {self.tipo} - ${self.precio}'
     
     
 class Fundas(models.Model):
@@ -40,7 +42,7 @@ class Fundas(models.Model):
     precio = models. IntegerField()
     
     def __str__(self):
-        return f'{self.modelo} - {self.tipo} - {self.precio}'
+        return f'{self.modelo} - {self.tipo} - ${self.precio}'
     
 
     

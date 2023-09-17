@@ -21,4 +21,12 @@ def lista_clientes(req):
     return render(req, "lista_clientes.html", {"lista_clientes": lista})
 
 def inicio (req):
+    
     return render (req, "inicio.html")
+
+
+def administar_celulares(req):
+    
+    
+
+    return render (req, "administrar_celulares.html")
