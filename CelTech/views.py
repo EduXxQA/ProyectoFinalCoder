@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import * 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpRequest
 
 # Create your views here.
 
@@ -24,9 +24,17 @@ def inicio (req):
     
     return render (req, "inicio.html")
 
+# def celular(req, marca, modelo, precio):
+#     celular = Celulares(marca = marca, modelo = modelo, precio = precio)
+#     celular.save()
 
-def administar_celulares(req):
-    
-    
 
-    return render (req, "administrar_celulares.html")
+def administrador(req):
+    
+    if req.method == 'POST':
+       celular = Celulares(marca=req.POST['marca'], modelo=req.POST['modelo'], precio=req.POST['precio'])
+       celular.save()
+       return render(req, "administrador.html", {"mensaje": "Celular Agregado con éxito"})
+        
+    
+    return render (req, "administrador.html")

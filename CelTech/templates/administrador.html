@@ -1,0 +1,60 @@
+{% extends 'padre.html' %}
+
+
+
+{% block cambiante %}
+
+    <h1>PANEL ADMINISTRADOR</h1>
+    <br>
+    <h2>SECCIÓN CELULARES</h2>
+    <br>
+        <p>{{mensaje}}</p>
+    <br>
+    <p>Aqui podemos agregar <!--o eliminar--> Celulares de nuestro Stock</p>
+    <br>
+    <form action="{% url 'administrador' %}" method="post">{% csrf_token %}
+
+        <p>Marca <input type="text" name=""></p>
+        <p>Modelo <input type="text" name=""></p>
+        <p>Precio <input type="number" name=""></p>
+
+        <button type="submit">Agregar</button>
+
+    </form>
+    <!--<br>
+    <br>
+    <h2>SECCIÓN ACCESORIOS</h2>
+    <br>
+    <p>Aqui podemos agregar o eliminar Accesorios de nuestro Stock</p>
+    <br>
+    <form action="{% url 'administrador' %}" method="post">{% csrf_token %}
+
+        <p>Marca: <input type="text" name=""></p>
+        <p>Tipo: <input type="text" name=""></p>
+        <p>Precio: <input type="number" name=""></p>
+
+        <button type="submit">Agregar</button>
+
+    </form>
+    <br>
+    <br>
+    <h2>SECCIÓN FUNDAS</h2>
+    <br>
+    <p>Aqui podemos agregar o eliminar Accesorios de nuestro Stock</p>
+    <br>
+    <form action="{% url 'administrador' %}" method="post">{% csrf_token %}
+
+        <p>Marca: <input type="text" name=""></p>
+        <p>Tipo: <input type="text" name=""></p>
+        <p>Precio: <input type="number" name=""></p>
+
+        <button type="submit">Agregar</button>
+
+    </form>-->
+
+
+
+
+
+{% endblock cambiante %}
+    
