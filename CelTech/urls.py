@@ -7,6 +7,9 @@ urlpatterns = [
     path('agrega-cliente/<nombre>/<apellido>/<numero>', cliente),
     path('lista-clientes', lista_clientes),
     path('', inicio, name = "Inicio"),
-    path('administrar-celulares', administar_celulares, name="AddministrarCelulares"),
-    
+    path('administrar-celulares', administar_celulares, name="AdministrarCelulares"),
+    path('login', loginUsuario, name="Login"),
+    path('registrar/', register, name="Registrar"),
+   
+
 ]

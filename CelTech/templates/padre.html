@@ -17,27 +17,25 @@
         <!-- Responsive navbar-->
        {% include 'navbar.html' %}
         <!-- Page Content-->
-        <div class="container px-4 px-lg-5">
-            <!-- Heading Row-->
-            <div class="row gx-4 gx-lg-5 align-items-center my-5">
-                <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2013/02/movilesmiticos-nokia5125.jpg?fit=800%2C450&quality=50&strip=all&ssl=1" alt="..." /></div>
-                <div class="col-lg-5">
-                    <h1 class="font-weight-light">Cel-Tech</h1>
-                    <p>Aqui podemos Hablar un poco de la empresa o de nosotros como desarrolladores y usar el boton para ir al about us </p>
-                    <a class="btn btn-primary" href="#!">About Us...</a>
-                </div>
-            </div>
+        
+        
+        {% block banner %}
+          
+        {% endblock banner %}
+            
             <!-- Call to Action-->
-            <div class="card text-white bg-secondary my-5 py-4 text-center">
+            
+            
+            <div class="card text-white bg-secondary my-5 py-4   ">
                 <div class="card-body">
-                    <p class="text-white m-8">
+                   
                         
                         {% block cambiante %}
                             
                         {% endblock cambiante %}
                             
                       
-                    </p>
+                    
                 </div>
             </div>
             
