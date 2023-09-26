@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import * 
 from django.http import HttpResponse, HttpRequest
+from .forms import *
+
 
 # Create your views here.
 
@@ -24,17 +26,181 @@ def inicio (req):
     
     return render (req, "inicio.html")
 
-# def celular(req, marca, modelo, precio):
-#     celular = Celulares(marca = marca, modelo = modelo, precio = precio)
-#     celular.save()
+def agrega_funda(req, modelo, tipo, precio):
+    
+    funda = Fundas(modelo=modelo, tipo=tipo, precio=precio)
+    funda.save()
+    
+    return HttpResponse(f"""
+        <p>Funda: {funda.modelo} - {funda.tipo} - ${funda.precio} AGREGADA</p>        
+    """)
+    
+def agrega_celular(req, marca, modelo, precio):
+    
+    celular = Celulares(marca=marca, modelo=modelo, precio=precio)
+    celular.save()
+    
+    return HttpResponse(f"""
+        <p>Celular: {celular.marca} - {celular.modelo} - ${celular.precio} AGREGADO</p>        
+    """)    
 
 
-def administrador(req):
+def administrador_celulares(req: HttpRequest):
+    
+    print('method', req.method)
+    print('post', req.POST) 
+    
+    #lista_celular = Celulares.objects.all()
+       
+    if req.method == 'POST':
+        
+        agregarCelular = AdministradorCelulares(req.POST)
+        
+        if agregarCelular.is_valid():
+            
+            print(agregarCelular.cleaned_data)
+            data = agregarCelular.cleaned_data
+        
+            celular = Celulares(marca=data["marca"], modelo=data["modelo"], precio=data["precio"])
+            celular.save()
+            return render(req, "lista_celulares.html", {"mensaje_celular": "Celular agregado correctamente"})    
+        else:
+            return render(req, "lista_celulares.html", {"mensaje_celular": "El celular no pudo ser agrgado"})    
+    else:
+        agregarCelular = AdministradorCelulares()       
+        return render(req, "administrador_celulares.html", {"agregarCelular": agregarCelular}) 
+
+def administrador_accesorios(req: HttpRequest):
+    
+    print('method', req.method)
+    print('post', req.POST)
     
     if req.method == 'POST':
-       celular = Celulares(marca=req.POST['marca'], modelo=req.POST['modelo'], precio=req.POST['precio'])
-       celular.save()
-       return render(req, "administrador.html", {"mensaje": "Celular Agregado con éxito"})
+        
+        agregarAccesorio = AdministradorAccesorios(req.POST)
+        
+        if agregarAccesorio.is_valid():
+            print(agregarAccesorio.cleaned_data)
+            data = agregarAccesorio.cleaned_data
+            
+            accesorio = Accesorios(marca=data["marca"], tipo=data["tipo"], precio=data["precio"])
+            accesorio.save()
+            return render(req, "administrador_accesorios.html", {"mensaje_accesorio": "Accesorio agregado correctamente"})        
+        else:
+            return render(req, "administrador_celulares.html", {"mensaje_accesorio": "El celular no pudo ser agrgado"})    
+    else:
+        agregarAccesorio = AdministradorAccesorios()    
+        return render(req, "administrador_accesorios.html", {"agregarAccesorio": agregarAccesorio}) 
+
+def administrador_fundas(req: HttpRequest):
+    
+    print('method', req.method)
+    print('post', req.POST)
+    
+    if req.method == 'POST':
+        
+        agregarFunda = AdministradorFundas(req.POST)
+        
+        if agregarFunda.is_valid():
+            print(agregarFunda.cleaned_data)
+            data = agregarFunda.cleaned_data
+            
+            funda = Fundas(modelo=data["modelo"], tipo=data["tipo"], precio=data["precio"])
+            funda.save()
+            return render(req, "administrador_fundas.html", {"mensaje_funda": "Funda agregada correctamente"})
+        else:
+            return render(req, "administrador_fundas.html", {"mensaje_funda": "La funda no pudo ser agregada"})
+    else:
+        agregarFunda = AdministradorFundas()
+        return render(req, "administrador_fundas.html", {"agregarFunda": agregarFunda}) 
+
+
+def lista_celulares(req):
+    
+    lista_celular = Celulares.objects.all()
+    
+    return render(req, "lista_celulares.html", {"lista_celulares": lista_celular})
+
+
+
+def lista_accesorios(req):
+    
+    lista_accesorio = Accesorios.objects.all()
+    
+    return render(req, "lista_accesorios.html", {"lista_accesorios": lista_accesorio})
+
+def lista_fundas(req):
+    
+    lista_funda = Fundas.objects.all()
+    
+    return render(req, "lista_fundas.html", {"lista_fundas": lista_funda})
+
+def eliminarCelular(req, id):
+    
+    if req.method == 'POST': 
+        
+        celular = Celulares.objects.get(id=id)
+        celular.delete()
+       
+        lista_celulares = Celulares.objects.all()
+        
+        return render(req, "lista_celulares.html", {"lista_celulares": lista_celulares})
+    
+def eliminarAccesorio(req, id):
+    
+    if req.method == 'POST': 
+        
+        accesorio = Accesorios.objects.get(id=id)
+        accesorio.delete()
+       
+        lista_accesorios = Accesorios.objects.all()
+        
+        return render(req, "lista_accesorios.html", {"lista_accesorios": lista_accesorios})
+    
+def eliminarFunda(req, id):
+    
+    if req.method == 'POST': 
+        
+        funda = Fundas.objects.get(id=id)
+        funda.delete()
+       
+        lista_fundas = Fundas.objects.all()
+        
+        return render(req, "lista_fundas.html", {"lista_fundas": lista_fundas})
+    
+
+def editarCelular(req, id):
+    
+    celular = Celulares.objects.get(id=id)
+    
+    if req.method == 'POST':
+        
+        agregarCelular = AdministradorCelulares(req.POST)
+        
+        if agregarCelular.is_valid():
+            
+            print(agregarCelular.cleaned_data)
+            data = agregarCelular.cleaned_data
+        
+            celular.marca = data["marca"]
+            celular.modelo = data["modelo"]
+            celular.precio = data["precio"]
+            
+            celular.save()
+            return render(req, "lista_celulares.html", {"mensaje_celular": "Celular actualizado correctamente"})    
+        else:
+            return render(req, "administrador_celulares.html", {"mensaje_celular": "El celular no pudo ser actualizado"})    
+    else:
+        agregarCelular = AdministradorCelulares(initial={
+            "marca": celular.marca,
+            "modelo": celular.modelo,
+            "precio": celular.precio,
+                
+        })       
+        return render(req, "editar_celular.html", {"agregarCelular": agregarCelular, "id": celular.id}) 
+    
         
     
-    return render (req, "administrador.html")
+
+    
+

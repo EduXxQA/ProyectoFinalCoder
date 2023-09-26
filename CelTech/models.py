@@ -39,7 +39,7 @@ class Fundas(models.Model):
     
     modelo = models.CharField(max_length=20)
     tipo =  models.CharField(max_length=20)
-    precio = models. IntegerField()
+    precio = models.IntegerField()
     
     def __str__(self):
         return f'{self.modelo} - {self.tipo} - ${self.precio}'

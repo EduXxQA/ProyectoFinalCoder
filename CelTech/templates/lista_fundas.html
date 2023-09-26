@@ -1,0 +1,21 @@
+{% extends 'padre.html' %}
+
+{% block cambiante %}
+    <h1>Lista de Fundas</h1>    
+    <ul>
+        
+        {% for funda in lista_fundas  %}
+            <li>{{funda}}</li>    
+            <div>
+                <form action="{% url 'EliminarFunda' funda.id %}" method="post">{% csrf_token %}
+                    <button type="submit">Eliminar</button>
+                </form>
+            </div>         
+        {% endfor %}
+            
+            
+    </ul>
+
+    <a href="{% url 'AdministradorFundas' %}">Agregar Celular</a>
+{% endblock cambiante %}
+    

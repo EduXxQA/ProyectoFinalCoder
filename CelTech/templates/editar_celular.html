@@ -1,0 +1,24 @@
+{% extends 'padre.html' %}
+
+
+
+{% block cambiante %}
+
+    <h1>PANEL ADMINISTRADOR</h1>
+    <br>
+    <h2>SECCIÓN CELULARES</h2>
+        <p>{{mensaje_celular}}</p>
+    <p>Aqui podemos editar Celulares de nuestro Stock</p>
+    <br>
+    <br>
+
+    <form action="{% url 'EditarCelular' id %}" method="post">{% csrf_token %}
+
+        {{agregarCelular.as_p}}
+
+        <button type="submit">Actualizar Celular</button>
+
+    </form>
+   
+{% endblock cambiante %}
+    

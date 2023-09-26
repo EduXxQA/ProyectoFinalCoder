@@ -1,0 +1,20 @@
+{% extends 'padre.html' %}
+
+{% block cambiante %}
+    <h1>Lista de Accesorios</h1>    
+    <ul>
+        
+        {% for accesorio in lista_accesorios  %}
+            <li>{{accesorio}}</li>  
+            <div>
+                <form action="{% url 'EliminarAccesorio' accesorio.id %}" method="post">{% csrf_token %}
+                    <button type="submit">Eliminar</button>
+                </form>
+            </div>          
+        {% endfor %}
+            
+            
+    </ul>
+
+    <a href="{% url 'AdministradorAccesorios' %}">Agregar Accesorio</a>
+{% endblock cambiante %}

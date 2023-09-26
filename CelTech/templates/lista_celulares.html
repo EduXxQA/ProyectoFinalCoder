@@ -1,0 +1,26 @@
+{% extends 'padre.html' %}
+
+{% block cambiante %}
+    <h1>Lista de Celulares</h1>    
+    <ul>
+        
+        {% for celular in lista_celulares  %}
+            <li>{{celular}}</li> 
+            <div>
+                <form action="{% url 'EliminarCelular' celular.id %}" method="post">{% csrf_token %}
+                    <button type="submit">Eliminar</button>
+                </form>
+                <button>
+                    <a href="{% url 'EditarCelular' celular.id %}">Editar Celular</a>
+                </button>
+            </div>           
+        {% endfor %}
+          
+            
+    </ul>
+
+    <a href="{% url 'AdministradorCelulares' %}">Agregar Celular</a>
+
+
+{% endblock cambiante %}
+    
