@@ -27,11 +27,11 @@ def inicio (req):
     return render (req, "inicio.html")
 
 
-def administar_celulares(req):
+
     
     
 
-    return render (req, "administrar_celulares.html")
+
 
 def loginUsuario (req): 
     
