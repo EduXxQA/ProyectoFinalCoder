@@ -1,0 +1,14 @@
+{% extends 'padre.html' %}
+
+{% block cambiante %}
+
+    <h1>Lista de Fundas</h1>    
+    <ul>
+          
+        {% for funda in fundas  %}
+            <li>{{funda}}</li> 
+         
+        {% endfor %}
+    </ul>    
+{% endblock cambiante %}
+    

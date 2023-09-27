@@ -3,18 +3,21 @@
 {% block cambiante %}
     <h1>Lista de Accesorios</h1>    
     <ul>
-        
+        <p>{{mensaje_accesorio}}</p>
         {% for accesorio in lista_accesorios  %}
             <li>{{accesorio}}</li>  
             <div>
                 <form action="{% url 'EliminarAccesorio' accesorio.id %}" method="post">{% csrf_token %}
                     <button type="submit">Eliminar</button>
                 </form>
+                <button>
+                    <a style="color:black" href="{% url 'EditarAccesorio' accesorio.id %}">Editar Accesorio</a>
+                </button>
             </div>          
         {% endfor %}
             
             
     </ul>
 
-    <a href="{% url 'AdministradorAccesorios' %}">Agregar Accesorio</a>
+    <a style="color:black" href="{% url 'AdministradorAccesorios' %}">Agregar Accesorio</a>
 {% endblock cambiante %}

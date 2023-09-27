@@ -1,0 +1,13 @@
+{% extends 'padre.html' %}
+
+{% block cambiante %}
+
+    <h1>Lista de Accesorios</h1>    
+    <ul>
+          
+        {% for accesorio in accesorios  %}
+            <li>{{accesorio}}</li> 
+         
+        {% endfor %}
+    </ul>    
+{% endblock cambiante %}

@@ -19,5 +19,12 @@ urlpatterns = [
     path('eliminar-accesorio/<int:id>', eliminarAccesorio, name="EliminarAccesorio"),  
     path('eliminar-funda/<int:id>', eliminarFunda, name="EliminarFunda"),  
     path('editar-celular/<int:id>', editarCelular, name="EditarCelular"),  
+    path('editar-accesorio/<int:id>', editarAccesorio, name="EditarAccesorio"),  
+    path('editar-funda/<int:id>', editarFunda, name="EditarFunda"),
+    path('administrador', administrador, name="Administrador"),  
+    path('celulares', celulares, name="Celulares"),  
+    path('fundas', fundas, name="Fundas"),  
+    path('accesorios', accesorios, name="Accesorios"),  
+      
       
 ]

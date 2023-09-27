@@ -1,0 +1,24 @@
+{% extends 'padre.html' %}
+
+
+
+{% block cambiante %}
+
+    <h1>PANEL ADMINISTRADOR</h1>
+    <br>
+    <h2>SECCIÓN FUNDAS</h2>
+        <p>{{mensaje_funda}}</p>
+    <p>Aqui podemos editar fundas de nuestro Stock</p>
+    <br>
+    <br>
+
+    <form action="{% url 'EditarFunda' id %}" method="post">{% csrf_token %}
+
+        {{agregarFunda.as_p}}
+
+        <button type="submit">Actualizar Funda</button>
+
+    </form>
+   
+{% endblock cambiante %}
+    

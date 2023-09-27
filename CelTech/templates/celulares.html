@@ -1,0 +1,14 @@
+{% extends 'padre.html' %}
+
+{% block cambiante %}
+
+    <h1>Lista de Celulares</h1>    
+    <ul>
+          
+        {% for celular in celulares  %}
+            <li>{{celular}}</li> 
+         
+        {% endfor %}
+    </ul>    
+{% endblock cambiante %}
+    

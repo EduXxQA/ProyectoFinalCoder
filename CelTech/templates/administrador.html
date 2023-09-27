@@ -1,0 +1,20 @@
+{% extends 'padre.html' %}
+
+
+
+{% block cambiante %}
+   
+<p class="text-white m-8">
+
+    <h1>ADMINISTRADOR</h1>
+    <br>
+    <a style="color:black" href="{% url 'ListaCelulares' %}">PARA ADMINISTRAR CELULARES CLICK AQUI</a>
+    <br>
+    <br>
+    <a style="color:black" href="{% url 'ListaAccesorios' %}">PARA ADMINISTRAR ACCESORIOS CLICK AQUI</a>
+    <br>
+    <br>
+    <a style="color:black" href="{% url 'ListaFundas' %}">PARA ADMINISTRAR FUNDAS CLICK AQUI</a>     
+</p>
+{% endblock cambiante %}
+    

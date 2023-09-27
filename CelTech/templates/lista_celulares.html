@@ -3,7 +3,7 @@
 {% block cambiante %}
     <h1>Lista de Celulares</h1>    
     <ul>
-        
+        <p>{{mensaje_celular}}</p>   
         {% for celular in lista_celulares  %}
             <li>{{celular}}</li> 
             <div>
@@ -11,7 +11,7 @@
                     <button type="submit">Eliminar</button>
                 </form>
                 <button>
-                    <a href="{% url 'EditarCelular' celular.id %}">Editar Celular</a>
+                    <a style="color:black" href="{% url 'EditarCelular' celular.id %}">Editar Celular</a>
                 </button>
             </div>           
         {% endfor %}
@@ -19,7 +19,9 @@
             
     </ul>
 
-    <a href="{% url 'AdministradorCelulares' %}">Agregar Celular</a>
+    <a style="color:black" href="{% url 'AdministradorCelulares' %}">Agregar Celular</a>
+    <br>
+    
 
 
 {% endblock cambiante %}
