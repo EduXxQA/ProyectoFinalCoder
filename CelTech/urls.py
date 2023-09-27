@@ -11,5 +11,6 @@ urlpatterns = [
     path('login', loginUsuario, name="Login"),
     path('registrar/', register, name="Registrar"),
    
+   
 
 ]

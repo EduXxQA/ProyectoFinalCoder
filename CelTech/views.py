@@ -3,6 +3,7 @@ from .models import *
 from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
+from .forms import *
 # Create your views here.
 
 def cliente(req, nombre, apellido, numero):
