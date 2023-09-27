@@ -5,15 +5,44 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <!--<li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Inicio</a></li>-->
-            
+                
                 <li class="nav-item"><a class="nav-link" href="{% url 'Celulares' %}">Celulares</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'Fundas' %}">Fundas</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'Accesorios' %}">Accesorios</a></li>
                 <li class="nav-item"><a class="nav-link" href="#!">Buscar</a></li>
-             
-                <li class="nav-item"><a class="nav-link" href="{% url 'Login' %}">Login</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'Administrador' %}">Administrador</a></li>
 
+                
+                {% if user.is_superuser %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Administrador' %}">Administrador</a></li>
+                {% endif %}
+                    
+                
+                
+                    {% if user.is_authenticated %}
+                        
+                     {% if user.us %}
+                        
+                     {% endif %}
+                        
+                   
+                        
+                        <a class="btn btn-primary position-relative" href="{% url 'Logout' %}" role="button">Logout
+                        
+                           
+                          <span class="position-absolute top-80 start-100  badge rounded-pill text-bg-success">
+                            {{user.username}}
+                            
+                            </span>
+                          
+                        </a> 
+                        {% else %}
+
+                        <a class="btn btn-primary" href="{% url 'Login' %}" role="button">Login</a>
+                    {% endif %}
+                    
+                
+                
+                
             </ul>
         </div>
     </div>
