@@ -25,6 +25,7 @@ urlpatterns = [
     path('celulares', celulares, name="Celulares"),  
     path('fundas', fundas, name="Fundas"),  
     path('accesorios', accesorios, name="Accesorios"),  
-      
+    path('login', loginUsuario, name="Login"),
+    path('registrar/', register, name="Registrar"),
       
 ]

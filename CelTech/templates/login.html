@@ -1,0 +1,30 @@
+{% extends 'padre.html' %}
+
+
+{% block cambiante %}
+
+<div class=" text-center">
+  <form action="" method="post">{% csrf_token %}
+
+    {{miFormulario.as_p}}
+   
+    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+ 
+  </form> 
+ <br>
+   <p>¿No tienes cuenta?</p>
+   <p></p>
+    
+    <a class="btn btn-primary" href="{% url 'Registrar' %}" role="button">Crear Cuenta</a>
+
+
+ 
+    </button>
+</div>  
+
+  
+    
+
+
+{% endblock cambiante %}
+
