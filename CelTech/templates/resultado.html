@@ -1,0 +1,82 @@
+{% extends 'padre.html' %}
+
+
+{% block cambiante %}
+   <p>{{mc}}</p>
+
+{% if celulares and fundas %}
+      <h1>Modelos de Celulares:</h1> 
+
+      {% for celulares in celulares %}
+         <li>
+         {{celulares.marca}} --- {{celulares.modelo}} -- ${{celulares.precio}}
+      </li>
+         {% endfor %}  
+
+         <h1>Modelos de Fundas: </h1>
+
+         {% for funda  in fundas %}
+         <li>
+
+            {{funda.modelo}} --- {{funda.tipo}} --- ${{funda.precio}}
+         </li>   
+         {% endfor %}
+
+   
+   
+   {%  elif  celulares %}
+
+   <h1>Modelos de celulares:</h1>
+
+   {% for celular in Celulares  %}
+   <li>
+      {{celular.marca}} - {{celular.modelo}} -- ${{celular.precio}}
+
+   </li>   
+
+   <h1>Modelos de Fundas :</h1>
+   
+   <p>{No hay fundas compatibles con el modelo que buscaste}</p>
+   {% endfor %}
+   
+
+{% elif fundas %}
+
+   <h1>Modelo de Celulares: </h1>
+   
+   <p>{{mc}}</p>      
+
+   <h1>Modelos de Fundas:</h1>
+
+   {% for funda in fundas  %}
+   <li>
+      {{funda.modelo}} - {{funda.tipo}} --${{funda.precio}}
+
+   </li>   
+   {% endfor %}
+   
+
+            
+{% endif %}
+         
+
+
+
+
+
+
+
+   
+   <br>
+
+<a class="btn btn-primary" href="{% url 'buscar' %}" role="button">Buscar de nuevo</a>
+
+
+     
+{% endblock cambiante %}
+   
+
+
+
+
+   

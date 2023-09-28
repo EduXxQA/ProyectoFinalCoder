@@ -30,6 +30,9 @@ urlpatterns = [
     path('registrar/', register, name="Registrar"),
     path('logout/', LogoutView.as_view(template_name= "inicio.html"), name="Logout"),
     #path('consulta/', consulta, name="Consulta"),
+    path('buscar/', busquedaCelular , name="buscar"),
+    path('resultado/', resultadoCelular , name="resultado"),
+
 
       
 ]

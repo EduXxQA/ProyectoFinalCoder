@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpRequest
 from .forms import *
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
+from django.db.models import   Q
 # from django.shortcuts import render, redirect
 # from django.core.mail import send_mail
 
@@ -365,5 +366,54 @@ def register(req):
 #     return render(req, 'formulario.html', {'form': form})    
 
 
+# def busquedaCelular(req):
+#    busqueda= req.GET.get("buscar")
+#    celulares =Celulares.objects.filter()
+#    if busqueda:
+#         #    celuMarca=Celulares.objects.filter("marca")
+#         #    celuModelo= Celulares.objects.filter("modelo")
+#         celulares= Celulares.objects.filter(
+#             Q(marca__icontains = busqueda)|
+#             Q(modelo__icontains = busqueda)
+
+#         ).distinct
+#         return render (req,"resultado.html",{"celulares" : celulares})
+#    else:
+#        return render (req,"buscar.html", {"celulares": celulares})
+    
     
 
+def busquedaCelular(req):
+  busqueda= req.GET.get("buscar")
+  celulares=Celulares.objects.all()
+  fundas =Fundas.objects.all()
+  if busqueda:
+        celulares =Celulares.objects.filter(
+        Q(modelo__icontains = busqueda)
+        # Q(marca__icontains= busqueda)|
+        )
+        fundas = Fundas.objects.filter(
+            Q(modelo__icontains = busqueda)
+
+        )
+        if celulares and fundas:
+            return render(req,"resultado.html", {"celulares":celulares , "fundas": fundas})
+        
+        elif celulares:
+
+            return render (req,"resultado.html",{"celulares": celulares})
+        
+        elif fundas:
+            return render (req,"resultado.html",{"fundas": fundas})
+
+
+        else: 
+            return render (req,"resultado.html", {"mc": "Modelo no encontrado"})
+  else:
+      return render(req,"buscar.html")
+      
+   
+  
+
+def resultadoCelular(req):
+    return render (req, "resultado.html")
