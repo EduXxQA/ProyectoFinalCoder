@@ -4,6 +4,9 @@ from django.http import HttpResponse, HttpRequest
 from .forms import *
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
+# from django.shortcuts import render, redirect
+# from django.core.mail import send_mail
+
 
 
 
@@ -340,6 +343,26 @@ def register(req):
         miFormulario = UserCreationForm()
         return render(req, "registro.html", {"miFomulario": miFormulario})
     
+   
+# def consulta(req):
+#     if req.method == 'POST':
+#         form = consultaFormulario(req.POST)
+#         if form.is_valid():
+#             consulta = form.save(commit=False)
+#             consulta.save()
+
+            
+#             subject = 'Nueva consulta'
+#             message = f'Nombre: {consulta.nombre}\nCorreo: {consulta.correo}\nMensaje: {consulta.mensaje}'
+#             from_email = 'tu_correo@gmail.com'
+#             recipient_list = ['correo_destino@example.com']
+#             send_mail(subject, message, from_email, recipient_list)
+
+#             return redirect('gracias_por_la_consulta')
+#     else:
+#         form = consultaFormulario()
+    
+#     return render(req, 'formulario.html', {'form': form})    
 
 
     

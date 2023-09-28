@@ -44,6 +44,14 @@ class Fundas(models.Model):
     def __str__(self):
         return f'{self.modelo} - {self.tipo} - ${self.precio}'
     
+    
+# class Consulta(models.Model):
+#     nombre = models.CharField(max_length=100)
+#     correo = models.EmailField()
+#     mensaje = models.TextField()
+    
+        
+    
 
     
 
