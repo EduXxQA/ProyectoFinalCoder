@@ -417,3 +417,16 @@ def busquedaCelular(req):
 
 def resultadoCelular(req):
     return render (req, "resultado.html")
+
+
+
+def galeria (req):
+    
+    
+    lista_celular = Celulares.objects.all()
+    
+    return render(req, "galeria.html", {"lista_celulares": lista_celular})
+
+
+def carrito(req): 
+    return render (req,"carrito.html")

@@ -32,6 +32,10 @@ urlpatterns = [
     #path('consulta/', consulta, name="Consulta"),
     path('buscar/', busquedaCelular , name="buscar"),
     path('resultado/', resultadoCelular , name="resultado"),
+    path('galeria/', galeria , name="galeria"),
+    path('carrito/', carrito , name="carrito"),
+
+
 
 
       

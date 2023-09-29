@@ -3,7 +3,7 @@
 
 
 {% block cambiante %}
-
+<div class = "text-center">
     <h1>PANEL ADMINISTRADOR</h1>
     <br>
     <h2>SECCIÓN CELULARES</h2>
@@ -11,14 +11,17 @@
     <p>Aqui podemos editar Celulares de nuestro Stock</p>
     <br>
     <br>
-
+<div class=" text-center">
     <form action="{% url 'EditarCelular' id %}" method="post">{% csrf_token %}
 
         {{agregarCelular.as_p}}
 
-        <button type="submit">Actualizar Celular</button>
+       
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+
 
     </form>
-   
+   </div>
+</div>
 {% endblock cambiante %}
     
