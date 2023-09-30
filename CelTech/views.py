@@ -430,3 +430,8 @@ def galeria (req):
 
 def carrito(req): 
     return render (req,"carrito.html")
+
+
+def aboutus (req):
+    
+    return render (req, "aboutus.html")

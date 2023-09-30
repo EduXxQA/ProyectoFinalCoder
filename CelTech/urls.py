@@ -34,6 +34,7 @@ urlpatterns = [
     path('resultado/', resultadoCelular , name="resultado"),
     path('galeria/', galeria , name="galeria"),
     path('carrito/', carrito , name="carrito"),
+    path('aboutus/', aboutus , name="AboutUs"),
 
 
 
