@@ -435,3 +435,7 @@ def carrito(req):
 def aboutus (req):
     
     return render (req, "aboutus.html")
+
+
+
+
