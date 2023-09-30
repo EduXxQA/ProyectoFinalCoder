@@ -3,10 +3,14 @@
 
 {% block cambiante %}
  <div class="text-center">  
-   <p>{{mc}}</p>
+   
+   <h1>Resultado de la Busqueda</h1>
+<br>
+<p>{{mc}}</p>
 
-{% if celulares and fundas %}
-      <h1>Modelos de Celulares:</h1> 
+<!-- ////MUESTRA CELULARES Y FUNDAS//// -->
+   {% if celulares and fundas %}
+      <h2>Modelos de Celulares:</h2> 
 
       {% for celulares in celulares %}
          <li>
@@ -14,9 +18,9 @@
       </li>
          {% endfor %}  
 
-         <h1>Modelos de Fundas: </h1>
+         <h2>Modelos de Fundas: </h2>
 
-         {% for funda  in Fundas %}
+         {% for funda  in fundas %}
          <li>
 
             {{funda.modelo}} --- {{funda.tipo}} --- ${{funda.precio}}
@@ -24,10 +28,11 @@
          {% endfor %}
 
    
+   <!-- ///MUESTRA SOLO CELULARES/// -->
    
    {%  elif  celulares %}
  
-   <h1>Modelos de Celulares:</h1>
+   <h2>Modelos de Celulares:</h2>
 
    
 
@@ -37,19 +42,19 @@
 
    </li>   
 
-   <h1>Modelos de Fundas :</h1>
+   <h2>Modelos de Fundas :</h2>
    
    <p>No hay fundas compatibles con el modelo que buscaste</p>
    {% endfor %}
    
-
+<!-- //// MUESTRA SOLO FUNDAS/// -->
 {% elif fundas %}
  
-   <h1>Modelo de Celulares: </h1>
+   <h2>Modelo de Celulares: </h2>
    
    <p>No hay Fundas Disponibles</p>      
 
-   <h1>Modelos de Fundas:</h1>
+   <h2>Modelos de Fundas:</h2>
 
    {% for funda in fundas  %}
    <li>
@@ -57,6 +62,8 @@
 
    </li>   
    {% endfor %}
+
+
    
 
             
@@ -75,12 +82,17 @@
 <a class="btn btn-primary" href="{% url 'buscar' %}" role="button">Buscar de nuevo</a>
 
 </div>
+
+
+
+
+
+   
+
+
+</div>
      
 {% endblock cambiante %}
 
    
 
-
-
-
-   

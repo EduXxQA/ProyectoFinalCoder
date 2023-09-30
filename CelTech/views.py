@@ -382,12 +382,20 @@ def register(req):
 #        return render (req,"buscar.html", {"celulares": celulares})
     
     
-
+# //////////buscador de celulares basado en vistas//////////
 def busquedaCelular(req):
-  busqueda= req.GET.get("buscar")
+  busqueda= req.GET.get("buscar")  
+  
   celulares=Celulares.objects.all()
   fundas =Fundas.objects.all()
-  if busqueda:
+ 
+
+  
+  
+  
+  
+  
+  if busqueda :
         celulares =Celulares.objects.filter(
         Q(modelo__icontains = busqueda)
         # Q(marca__icontains= busqueda)|
@@ -396,6 +404,10 @@ def busquedaCelular(req):
             Q(modelo__icontains = busqueda)
 
         )
+
+   
+
+        
         if celulares and fundas:
             return render(req,"resultado.html", {"celulares":celulares , "fundas": fundas})
         
@@ -405,16 +417,46 @@ def busquedaCelular(req):
         
         elif fundas:
             return render (req,"resultado.html",{"fundas": fundas})
-
+        
+    
 
         else: 
             return render (req,"resultado.html", {"mc": "Modelo no encontrado"})
   else:
       return render(req,"buscar.html")
-      
-   
+  
   
 
+
+      
+      
+
+
+# //////////// Busqueda de Accesorios//////////
+# def busquedaAccesorios(req):
+#   busqueda= req.GET.get("buscar2")
+#   accesorios=Accesorios.objects.all()
+  
+#   if busqueda:
+#         accesorios =Accesorios.objects.filter(
+#         Q(tipo__icontains = busqueda)
+#         # Q(marca__icontains= busqueda)|
+#         )
+        
+        
+#         if accesorios :
+#             return render(req,"resultado.html", {"accesorios":accesorios})
+        
+        
+
+#         else: 
+#             return render (req,"resultado.html", {"mc": "Accesorio no encontrado"})
+#   else:
+#       return render(req,"buscar.html")
+  
+
+
+# //////// RESULTADO DE LA BUSQUEDA///////
 def resultadoCelular(req):
     return render (req, "resultado.html")
 
@@ -425,7 +467,7 @@ def galeria (req):
     
     lista_celular = Celulares.objects.all()
     
-    return render(req, "galeria.html", {"lista_celulares": lista_celular})
+    return render(req, "lista_celulares.html", {"lista_celulares": lista_celular})
 
 
 def carrito(req): 
@@ -435,3 +477,5 @@ def carrito(req):
 def aboutus (req):
     
     return render (req, "aboutus.html")
+
+

@@ -1,27 +1,59 @@
 {% extends 'padre.html' %}
 
-{% block cambiante %}
-    <h1>Lista de Celulares</h1>    
-    <ul>
-        <p>{{mensaje_celular}}</p>   
-        {% for celular in lista_celulares  %}
-            <li>{{celular}}</li> 
-            <div>
-                <form action="{% url 'EliminarCelular' celular.id %}" method="post">{% csrf_token %}
-                    <button type="submit">Eliminar</button>
-                </form>
-                <button>
-                    <a style="color:black" href="{% url 'EditarCelular' celular.id %}">Editar Celular</a>
-                </button>
-            </div>           
-        {% endfor %}
-          
-            
-    </ul>
 
-    <a style="color:black" href="{% url 'AdministradorCelulares' %}">Agregar Celular</a>
-    <br>
+{% block cambiante %}
     
+
+{% for celular  in lista_celulares  %}
+  
+
+
+
+  <div class="card mb-3" style="max-width: 700px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="\static\img\phone.png" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title" style="color: darkslategrey;">{{celular.marca}} - {{celular.modelo}}</h5>
+          <p class="card-text" style="color: midnightblue;" > precio: ${{celular.precio}}</p>
+          <p class="card-text"><small class="text-body-secondary"></small></p>
+          
+          <form action="{% url 'EliminarCelular' celular.id %}" method="post">{% csrf_token %}
+            
+        
+         
+            <button type="submit" class="btn btn-primary">Eliminar Celular</button>
+        </form>
+        
+        <br>
+            
+            <a class="btn btn-primary" href="{% url 'EditarCelular' celular.id %}" role="button">Editar Celular</a>
+           
+
+        
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  
+
+  
+ <br>
+
+
+
+{% endfor %}
+    
+ <div class="text-center"> 
+    <a class="btn btn-primary" href="{% url 'AdministradorCelulares' %}" role="button">Agregar Celular</a>
+</div> 
 
 
 {% endblock cambiante %}
