@@ -5,22 +5,13 @@
     
         <p>{{mensaje_accesorio}}</p>
         {% for accesorio in lista_accesorios  %}
-            <!-- <li>{{accesorio}}</li>  
-            <div>
-                <form action="{% url 'EliminarAccesorio' accesorio.id %}" method="post">{% csrf_token %}
-                    <button type="submit">Eliminar</button>
-                </form>
-                <button>
-                    <a style="color:black" href="{% url 'EditarAccesorio' accesorio.id %}">Editar Accesorio</a>
-                </button>
-            </div>      
-             -->
+        
             
         <li> 
   <div class="card mb-3" style="max-width: 700px;">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="\static\img\images.png" class="img-fluid rounded-start" alt="...">
+        <img src="\static\img\accesorio.jpg" class="img-fluid rounded-start" alt="...">
       </div>
       <div class="col-md-8">
         <div class="card-body">

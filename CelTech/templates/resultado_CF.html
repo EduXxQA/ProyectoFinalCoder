@@ -12,9 +12,27 @@
    {% if celulares and fundas %}
       <h2>Modelos de Celulares:</h2> 
 
-      {% for celulares in celulares %}
+      {% for celular in celulares %}
          <li>
-         {{celulares.marca}} --- {{celulares.modelo}} -- ${{celulares.precio}}
+         
+            <div class="card mb-3" style="max-width: 700px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="\static\img\phone4.jpg" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title" style="color: darkslategrey;">{{celular.marca}} - {{celular.modelo}}</h5>
+          <p class="card-text" style="color: midnightblue;" > precio: ${{celular.precio}}</p>
+          <p class="card-text"><small class="text-body-secondary"></small></p>
+          <a class="btn btn-primary" href="{% url 'carrito'  %}" role="button">Añadir a Carrito</a>
+
+          
+        
+        </div>
+      </div>
+    </div>
+  </div>
       </li>
          {% endfor %}  
 
@@ -23,7 +41,24 @@
          {% for funda  in fundas %}
          <li>
 
-            {{funda.modelo}} --- {{funda.tipo}} --- ${{funda.precio}}
+              <div class="card mb-3" style="max-width: 700px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="\static\img\case2.jpg" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title" style="color: darkslategrey;">{{funda.modelo}} - {{funda.tipo}}</h5>
+          <p class="card-text" style="color: midnightblue;" > precio: ${{funda.precio}}</p>
+          <p class="card-text"><small class="text-body-secondary"></small></p>
+          <a class="btn btn-primary" href="{% url 'carrito'  %}" role="button">Añadir a Carrito</a>
+
+          
+        
+        </div>
+      </div>
+    </div>
+  </div>
          </li>   
          {% endfor %}
 
@@ -36,10 +71,26 @@
 
    
 
-   {% for celulares in celulares  %}
+   {% for celulare in celulares  %}
    <li>
-      {{celulares.marca}} - {{celulares.modelo}} -- ${{celulares.precio}}
+      <div class="card mb-3" style="max-width: 700px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="\static\img\phone4.jpg" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title" style="color: darkslategrey;">{{celular.marca}} - {{celular.modelo}}</h5>
+          <p class="card-text" style="color: midnightblue;" > precio: ${{celular.precio}}</p>
+          <p class="card-text"><small class="text-body-secondary"></small></p>
+          <a class="btn btn-primary" href="{% url 'carrito'  %}" role="button">Añadir a Carrito</a>
 
+          
+        
+        </div>
+      </div>
+    </div>
+  </div>
    </li>   
 
    <h2>Modelos de Fundas :</h2>
@@ -52,14 +103,30 @@
  
    <h2>Modelo de Celulares: </h2>
    
-   <p>No hay Fundas Disponibles</p>      
+   <p>No hay Modelos Disponibles</p>      
 
    <h2>Modelos de Fundas:</h2>
 
    {% for funda in fundas  %}
    <li>
-      {{funda.modelo}} - {{funda.tipo}} --${{funda.precio}}
+       <div class="card mb-3" style="max-width: 700px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="\static\img\case2.jpg" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title" style="color: darkslategrey;">{{funda.modelo}} - {{funda.tipo}}</h5>
+          <p class="card-text" style="color: midnightblue;" > precio: ${{funda.precio}}</p>
+          <p class="card-text"><small class="text-body-secondary"></small></p>
+          <a class="btn btn-primary" href="{% url 'carrito'  %}" role="button">Añadir a Carrito</a>
 
+          
+        
+        </div>
+      </div>
+    </div>
+  </div>
    </li>   
    {% endfor %}
 

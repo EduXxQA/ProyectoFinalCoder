@@ -3,21 +3,30 @@
 
 
 {% block cambiante %}
-
-    <h1>PANEL ADMINISTRADOR</h1>
+<div class="text-center">
+    
+    
+    <h1>Contacto</h1>
+    <br>
+    <p>Correo: celtech.coderhouse@gmail.com</p>
+    <p>Envianos tu consulta y nos pondremos en contacto con vos: </p>
     <br>
     
-    <p>Aqui podemos editar fundas de nuestro Stock</p>
-    <br>
-    <br>
 
     <form action="{% url 'contacto'  %}" method="post">{% csrf_token %}
 
         {{form.as_p}}
 
-        <button type="submit">Enviar Consulta</button>
+        
+     <button type="submit" class="btn btn-primary"  >Enviar Consulta</button>
+
 
     </form>
-   
+
+    
+    
+  
+        
+
 {% endblock cambiante %}
     
