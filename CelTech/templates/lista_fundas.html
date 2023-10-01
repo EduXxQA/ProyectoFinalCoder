@@ -1,24 +1,60 @@
 {% extends 'padre.html' %}
 
-{% block cambiante %}
-    <h1>Lista de Fundas</h1>    
-    <ul>
-        <p>{{mensaje_funda}}</p>
-        {% for funda in lista_fundas  %}
-            <li>{{funda}}</li>    
-            <div>
-                <form action="{% url 'EliminarFunda' funda.id %}" method="post">{% csrf_token %}
-                    <button type="submit">Eliminar</button>
-                </form>
-                <button>
-                    <a style="color:black" href="{% url 'EditarFunda' funda.id %}">Editar Funda</a>
-                </button>
-            </div>         
-        {% endfor %}
-            
-            
-    </ul>
 
-    <a style="color:black" href="{% url 'AdministradorFundas' %}">Agregar Funda</a>
+{% block cambiante %}
+    
+
+{% for funda  in lista_fundas  %}
+  
+
+
+
+  <div class="card mb-3" style="max-width: 700px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="\static\img\phone.png" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title" style="color: darkslategrey;">{{funda.modelo}} - {{funda.tipo}}</h5>
+          <p class="card-text" style="color: midnightblue;" > precio: ${{funda.precio}}</p>
+          <p class="card-text"><small class="text-body-secondary"></small></p>
+          
+          <form action="{% url 'EliminarFunda' funda.id %}" method="post">{% csrf_token %}
+            
+        
+         
+            <button type="submit" class="btn btn-primary">Eliminar Funda</button>
+        </form>
+        
+        <br>
+            
+            <a class="btn btn-primary" href="{% url 'EditarFunda' funda.id %}" role="button">Editar Funda</a>
+           
+
+        
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  
+
+  
+ <br>
+
+
+
+{% endfor %}
+    
+ <div class="text-center"> 
+    <a class="btn btn-primary" href="{% url 'AdministradorFundas' %}" role="button">Agregar Funda</a>
+</div> 
+
+
 {% endblock cambiante %}
     
