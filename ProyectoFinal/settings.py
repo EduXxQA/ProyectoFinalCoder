@@ -130,9 +130,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # EMAIL_USE_TLS = True
 # EMAIL_HOST_USER = 'celtech.coderhouse@gmail.com'
 # EMAIL_HOST_PASSWORD = 'bmecoqtdybhzbfnl '
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'celtech.coderhouse@gmail.com'
-EMAIL_HOST_PASSWORD = 'bmecoqtdybhzbfnl '
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'celtech.coderhouse@gmail.com'
+# EMAIL_HOST_PASSWORD = 'bmecoqtdybhzbfnl '
+
+
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = 'b9d6b1a9f587c7'
+EMAIL_HOST_PASSWORD = '7c4beb192ea606'
+EMAIL_PORT = '2525'
