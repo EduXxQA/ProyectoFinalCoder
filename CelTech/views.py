@@ -9,9 +9,10 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.views.generic.list import ListView
 # from django.shortcuts import render, redirect
-from django.core.mail import send_mail ,EmailMessage
+from django.core.mail import send_mail
 from ProyectoFinal import settings
 from django.template.loader import render_to_string
+
 
 
 # Create your views here.
@@ -354,16 +355,16 @@ def register(req):
 #         if form.is_valid():
 #             consulta = form.save(commit=False)
 #             consulta.save()
-           
+         
 #             subject = 'Nueva consulta'
 #             message = f'Nombre: {consulta.nombre}\nCorreo: {consulta.correo}\nMensaje: {consulta.mensaje}'
-#             from_email = 'tu_correo@gmail.com'
-#             recipient_list = ['correo_destino@example.com']
+#             from_email = 'correo'
+#             recipient_list = ['celtech.coderhouse@gmail.com']
 #             send_mail(subject, message, from_email, recipient_list)
 #             return redirect('gracias_por_la_consulta')
 #         else:
 #             form = consultaFormulario()
-  
+ 
 #     return render(req, 'formulario.html', {'form': form})    
 
 
