@@ -22,7 +22,7 @@ urlpatterns = [
     path('editar-celular/<int:id>', editarCelular, name="EditarCelular"),  
     path('editar-accesorio/<int:id>', editarAccesorio, name="EditarAccesorio"),  
     path('editar-funda/<int:id>', editarFunda, name="EditarFunda"),
-    path('administrador', administrador, name="Administrador"),  
+    # path('administrador', administrador, name="Administrador"),  
     path('celulares', celulares, name="Celulares"),  
     path('fundas', fundas, name="Fundas"),  
     path('accesorios', accesorios, name="Accesorios"),  
@@ -30,8 +30,12 @@ urlpatterns = [
     path('registrar/', register, name="Registrar"),
     path('logout/', LogoutView.as_view(template_name= "inicio.html"), name="Logout"),
     #path('consulta/', consulta, name="Consulta"),
-    path('buscar/', busquedaCelular , name="buscar"),
-    path('resultado/', resultadoCelular , name="resultado"),
+    path('buscarCF/', busquedaCelular , name="buscarCF"),
+    path('resultadoCF/', resultadoCelular , name="resultado"),
+    path('buscarAC/', busquedaAccesorios , name="buscarAC"),
+    path('resultadoAC/', resultadoAC , name="resultadoAC"),
+
+
    
     path('carrito/', carrito , name="carrito"),
     path('aboutus/', aboutus , name="AboutUs"),

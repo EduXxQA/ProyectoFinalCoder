@@ -9,11 +9,37 @@
                 <li class="nav-item"><a class="nav-link" href="{% url 'Celulares' %}">Celulares</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'Fundas' %}">Fundas</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'Accesorios' %}">Accesorios</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'buscar' %}">Buscar</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Buscar
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{% url 'buscarCF' %}">Celulares/Fundas</a></li>
+                      <li><a class="dropdown-item" href="{% url 'buscarAC' %}">Accesorios</a></li>
+                      
+                      
+                    </ul>
+                  </li>
+                
+                
 
                 
                 {% if user.is_superuser %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'Administrador' %}">Administrador</a></li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Administrador
+                  </a>
+                  <ul class="dropdown-menu ">
+                    <li><a class="dropdown-item" href="{% url 'ListaCelulares' %}">Administrar Celulares</a></li>
+                    <li><a class="dropdown-item" href="{% url 'ListaFundas' %}">Administrar Fundas</a></li>
+                    <li><a class="dropdown-item" href="{% url 'ListaAccesorios' %}">Administrar Accesorios</a></li>
+
+                    
+                    
+                  </ul>
+                </li>    
+                
+                
                 {% endif %}
                     
                 

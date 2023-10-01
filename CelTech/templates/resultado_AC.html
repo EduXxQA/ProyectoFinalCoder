@@ -1,0 +1,47 @@
+{% extends 'padre.html' %}
+
+<!-- ////// ESTE HTML MUESTRA EL RESULTADO DE LA BUSQUEDA DE ACCESORIOS///// -->
+{% block cambiante %}
+ <div class="text-center">  
+   
+   <h1>Resultado de la Busqueda</h1>
+<br>
+<p>{{mc}}</p>
+
+<!-- ////MUESTRA ACCESORIOS//// -->
+   
+
+{% for accesorio in accesorios %}
+<h2>Modelo de Celulares: </h2>
+
+<li>
+    {{accesorio.marca}} - {{accesorio.tipo}} --${{accesorio.precio}}
+
+ </li>   
+{% endfor %}
+    
+
+
+
+
+
+   
+   <br>
+
+<a class="btn btn-primary" href="{% url 'buscarAC' %}" role="button">Buscar de nuevo</a>
+
+</div>
+
+
+
+
+
+   
+
+
+</div>
+     
+{% endblock cambiante %}
+
+   
+
