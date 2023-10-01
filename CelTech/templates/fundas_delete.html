@@ -1,0 +1,23 @@
+{% extends 'padre.html' %}
+
+
+
+{% block cambiante %}
+
+    <br>
+    <h2>SECCIÓN FUNDAS</h2>
+ 
+    <p>Aqui podemos eliminar fundas de nuestro Stock</p>
+    <br>
+    <br>
+
+    <form method="post">{% csrf_token %}
+
+        <p>Estas seguro que desea eliminar la funda?</p>
+
+        <button type="submit">Confirmar</button>
+        <button><a href="{% url 'FundasLista' %}">Cancelar</a></button>
+
+    </form>
+   
+{% endblock cambiante %}

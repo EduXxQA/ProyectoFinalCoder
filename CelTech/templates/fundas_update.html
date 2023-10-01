@@ -1,0 +1,23 @@
+{% extends 'padre.html' %}
+
+
+
+{% block cambiante %}
+
+    <br>
+    <h2>SECCIÓN FUNDAS</h2>
+ 
+    <p>Aqui podemos actualizar fundas a nuestro Stock</p>
+    <br>
+    <br>
+
+    <form action="{% url 'FundasActualizar' fundas.id %}" method="post">{% csrf_token %}
+
+        {{form.as_p}}
+
+        <button type="submit">Actualizar Funda</button>
+
+    </form>
+   
+{% endblock cambiante %}
+    

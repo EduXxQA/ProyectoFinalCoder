@@ -5,6 +5,9 @@ from .forms import *
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from django.db.models import   Q
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import DeleteView, UpdateView, CreateView
+from django.views.generic.list import ListView
 # from django.shortcuts import render, redirect
 # from django.core.mail import send_mail
 
@@ -351,18 +354,16 @@ def register(req):
 #         if form.is_valid():
 #             consulta = form.save(commit=False)
 #             consulta.save()
-
-            
+           
 #             subject = 'Nueva consulta'
 #             message = f'Nombre: {consulta.nombre}\nCorreo: {consulta.correo}\nMensaje: {consulta.mensaje}'
 #             from_email = 'tu_correo@gmail.com'
 #             recipient_list = ['correo_destino@example.com']
 #             send_mail(subject, message, from_email, recipient_list)
-
 #             return redirect('gracias_por_la_consulta')
-#     else:
-#         form = consultaFormulario()
-    
+#         else:
+#             form = consultaFormulario()
+  
 #     return render(req, 'formulario.html', {'form': form})    
 
 
@@ -382,12 +383,15 @@ def register(req):
 #        return render (req,"buscar.html", {"celulares": celulares})
     
     
-
+# //////////buscador de celulares basado en vistas//////////
 def busquedaCelular(req):
-  busqueda= req.GET.get("buscar")
+  busqueda= req.GET.get("buscar")  
+  
   celulares=Celulares.objects.all()
-  fundas =Fundas.objects.all()
-  if busqueda:
+  fundas =Fundas.objects.all()  
+  
+  
+  if busqueda :
         celulares =Celulares.objects.filter(
         Q(modelo__icontains = busqueda)
         # Q(marca__icontains= busqueda)|
@@ -396,6 +400,10 @@ def busquedaCelular(req):
             Q(modelo__icontains = busqueda)
 
         )
+
+   
+
+        
         if celulares and fundas:
             return render(req,"resultado.html", {"celulares":celulares , "fundas": fundas})
         
@@ -405,16 +413,46 @@ def busquedaCelular(req):
         
         elif fundas:
             return render (req,"resultado.html",{"fundas": fundas})
-
+        
+    
 
         else: 
             return render (req,"resultado.html", {"mc": "Modelo no encontrado"})
   else:
       return render(req,"buscar.html")
-      
-   
+  
   
 
+
+      
+      
+
+
+# //////////// Busqueda de Accesorios//////////
+# def busquedaAccesorios(req):
+#   busqueda= req.GET.get("buscar2")
+#   accesorios=Accesorios.objects.all()
+  
+#   if busqueda:
+#         accesorios =Accesorios.objects.filter(
+#         Q(tipo__icontains = busqueda)
+#         # Q(marca__icontains= busqueda)|
+#         )
+        
+        
+#         if accesorios :
+#             return render(req,"resultado.html", {"accesorios":accesorios})
+        
+        
+
+#         else: 
+#             return render (req,"resultado.html", {"mc": "Accesorio no encontrado"})
+#   else:
+#       return render(req,"buscar.html")
+  
+
+
+# //////// RESULTADO DE LA BUSQUEDA///////
 def resultadoCelular(req):
     return render (req, "resultado.html")
 
@@ -425,7 +463,7 @@ def galeria (req):
     
     lista_celular = Celulares.objects.all()
     
-    return render(req, "galeria.html", {"lista_celulares": lista_celular})
+    return render(req, "lista_celulares.html", {"lista_celulares": lista_celular})
 
 
 def carrito(req): 
@@ -437,5 +475,46 @@ def aboutus (req):
     return render (req, "aboutus.html")
 
 
+
+
+
+class FundasList(ListView):
+    model = Fundas
+    template_name = "fundas_list.html"
+    context_object_name = "fundaslist"
+    
+
+
+class FundasDetail(DetailView):
+    model = Fundas
+    template_name = "fundas_detail.html"
+    context_object_name = "fundadetail"
+    
+
+
+
+class FundasCreate(CreateView):
+    model = Fundas
+    template_name = "fundas_create.html"
+    fields = ("__all__")
+    success_url = "/CelTech/fundas-lista/"
+    
+    
+
+class FundasUpdate(UpdateView):
+    model = Fundas
+    template_name = "fundas_update.html"
+    fields = ("__all__")
+    success_url = "/CelTech/fundas-lista/"
+    
+
+
+class FundasDelete(DeleteView):
+    model = Fundas
+    template_name = "fundas_delete.html"
+    success_url = "/CelTech/fundas-lista"
+
+    
+   
 
 

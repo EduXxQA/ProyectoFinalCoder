@@ -50,6 +50,8 @@ class Fundas(models.Model):
 #     correo = models.EmailField()
 #     mensaje = models.TextField()
     
+    
+
         
     
 

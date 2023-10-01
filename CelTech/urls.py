@@ -32,12 +32,16 @@ urlpatterns = [
     #path('consulta/', consulta, name="Consulta"),
     path('buscar/', busquedaCelular , name="buscar"),
     path('resultado/', resultadoCelular , name="resultado"),
-    path('galeria/', galeria , name="galeria"),
+   
     path('carrito/', carrito , name="carrito"),
     path('aboutus/', aboutus , name="AboutUs"),
 
-
-
+    path('fundas-lista/', FundasList.as_view(), name="FundasLista"),
+    path('fundas-detalle/<pk>', FundasDetail.as_view(), name="FundasDetalle"),
+    path('fundas-crear/', FundasCreate.as_view(), name="FundasCrear"),
+    path('fundas-actualizar/<pk>', FundasUpdate.as_view(), name="FundasActualizar"),
+    path('fundas-eliminar/<pk>', FundasDelete.as_view(), name="FundasEliminar"),
+    
 
       
 ]

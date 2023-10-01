@@ -22,6 +22,6 @@ class AdministradorFundas(forms.Form):
 # class consultaFormulario(forms.ModelForm):
 #     class Meta:
 #         model = Consulta
-#         fields = ['nombre', 'correo', 'mensaje']
+#         fields = ("__all__")
     
     

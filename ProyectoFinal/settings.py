@@ -129,5 +129,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # EMAIL_PORT = 587
 # EMAIL_USE_TLS = True
 # EMAIL_HOST_USER = 'celtech.coderhouse@gmail.com'
-# EMAIL_HOST_PASSWORD = 'AxlEduardo123..'
+# EMAIL_HOST_PASSWORD = 'bmecoqtdybhzbfnl '
 
