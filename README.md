@@ -4,12 +4,12 @@ SUPER USER:
 
 Correo Utilizado
     email: celtech.coderhouse@gmail.com 
-    pass: Axleduado123..
+    pass: AxlEduardo123..
 
 Para ingresar y ver los consultas enviadas ingresar en este link:
     link: https://mailtrap.io/signin
     mail: celtech.coderhouse@gmail.com  
-    pass: Axleduado123..
+    pass: AxlEduardo123..
 
 
 La intención de esta web es un e-commerce de celulares y accesorios para los mismos.
