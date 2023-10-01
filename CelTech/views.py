@@ -349,42 +349,9 @@ def register(req):
         return render(req, "registro.html", {"miFomulario": miFormulario})
     
    
-# def consulta(req):
-#     if req.method == 'POST':
-#         form = consultaFormulario(req.POST)
-#         if form.is_valid():
-#             consulta = form.save(commit=False)
-#             consulta.save()
-         
-#             subject = 'Nueva consulta'
-#             message = f'Nombre: {consulta.nombre}\nCorreo: {consulta.correo}\nMensaje: {consulta.mensaje}'
-#             from_email = 'correo'
-#             recipient_list = ['celtech.coderhouse@gmail.com']
-#             send_mail(subject, message, from_email, recipient_list)
-#             return redirect('gracias_por_la_consulta')
-#         else:
-#             form = consultaFormulario()
- 
-#     return render(req, 'formulario.html', {'form': form})    
-
-
-# def busquedaCelular(req):
-#    busqueda= req.GET.get("buscar")
-#    celulares =Celulares.objects.filter()
-#    if busqueda:
-#         #    celuMarca=Celulares.objects.filter("marca")
-#         #    celuModelo= Celulares.objects.filter("modelo")
-#         celulares= Celulares.objects.filter(
-#             Q(marca__icontains = busqueda)|
-#             Q(modelo__icontains = busqueda)
-
-#         ).distinct
-#         return render (req,"resultado.html",{"celulares" : celulares})
-#    else:
-#        return render (req,"buscar.html", {"celulares": celulares})
     
     
-# //////////buscador de celulares basado en vistas//////////
+
 def busquedaCelular(req):
   busqueda= req.GET.get("buscar")  
   
@@ -395,7 +362,7 @@ def busquedaCelular(req):
   if busqueda :
         celulares =Celulares.objects.filter(
         Q(modelo__icontains = busqueda)
-        # Q(marca__icontains= busqueda)|
+        
         )
         fundas = Fundas.objects.filter(
             Q(modelo__icontains = busqueda)
