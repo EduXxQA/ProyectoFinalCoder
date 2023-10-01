@@ -1,9 +1,19 @@
 {% extends 'padre.html' %}
 
 {% block cambiante %}
-    <h1>Lista de Accesorios</h1>    
+<div class="text-center">
+  <h1>Lista Accesorios:</h1>
+  
+    {% if mensaje_accesorio %}
+  
+  <div class="alert alert-success" role="alert">
+    {{mensaje_accesorio}}
     
-        <p>{{mensaje_accesorio}}</p>
+  {% endif %}
+     </div>
+  <br>
+       
+       
         {% for accesorio in lista_accesorios  %}
         
             

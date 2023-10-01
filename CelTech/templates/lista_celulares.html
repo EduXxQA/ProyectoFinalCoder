@@ -4,6 +4,19 @@
 {% block cambiante %}
     
 
+<div class="text-center">
+<h1>Lista Celulares:</h1>
+
+  {% if mensaje_celular %}
+
+<div class="alert alert-success" role="alert">
+  {{mensaje_celular}}
+  
+{% endif %}
+   </div>
+<br>
+
+
 {% for celular  in lista_celulares  %}
   
 
