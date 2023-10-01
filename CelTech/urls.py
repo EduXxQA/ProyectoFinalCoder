@@ -34,6 +34,11 @@ urlpatterns = [
     path('resultadoCF/', resultadoCelular , name="resultado"),
     path('buscarAC/', busquedaAccesorios , name="buscarAC"),
     path('resultadoAC/', resultadoAC , name="resultadoAC"),
+   
+    # //////formulario contacto/////
+    
+    path('contacto/', contacto , name="contacto"),
+    path('gracias/', gracias , name="gracias"),
 
 
    

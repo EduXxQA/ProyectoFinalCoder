@@ -1,0 +1,23 @@
+{% extends 'padre.html' %}
+
+
+
+{% block cambiante %}
+
+    <h1>PANEL ADMINISTRADOR</h1>
+    <br>
+    
+    <p>Aqui podemos editar fundas de nuestro Stock</p>
+    <br>
+    <br>
+
+    <form action="{% url 'contacto'  %}" method="post">{% csrf_token %}
+
+        {{form.as_p}}
+
+        <button type="submit">Enviar Consulta</button>
+
+    </form>
+   
+{% endblock cambiante %}
+    

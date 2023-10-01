@@ -1,6 +1,7 @@
 from django import forms
 from .models import *
 
+
 class AdministradorCelulares(forms.Form):
     marca = forms.CharField(required=True)
     modelo = forms.CharField(required=True)
@@ -23,5 +24,12 @@ class AdministradorFundas(forms.Form):
 #     class Meta:
 #         model = Consulta
 #         fields = ("__all__")
+    
+    
+class ConsultaFormulario(forms.ModelForm)  :
+    class Meta:
+        model = ConsultaFormulario
+        fields = ("__all__")
+    
     
     

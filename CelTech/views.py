@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import * 
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
 from .forms import *
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
@@ -9,9 +9,9 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.views.generic.list import ListView
 # from django.shortcuts import render, redirect
-# from django.core.mail import send_mail
-
-
+from django.core.mail import send_mail ,EmailMessage
+from ProyectoFinal import settings
+from django.template.loader import render_to_string
 
 
 # Create your views here.
@@ -486,6 +486,9 @@ class FundasDetail(DetailView):
     model = Fundas
     template_name = "fundas_detail.html"
     context_object_name = "fundadetail"
+
+
+
     
 
 
@@ -514,4 +517,25 @@ class FundasDelete(DeleteView):
     
    
 
+def contacto (req):
+    if req.method == "POST":
+        form = ConsultaFormulario(req.POST)
+        if form.is_valid():
+            asunto = "Consulta CelTech"
+            mensaje = form.cleaned_data["mensaje"]
+            correo = form.cleaned_data ["correo"]
+            html = render_to_string("email.html" ,{"mensaje" : mensaje , "correo" : correo})
+            from_email= "correo"
+           
+            send_mail(asunto, mensaje ,from_email , ["celtech.coderhouse@gmail.com"], html_message=html)
+           
+            return render ( req, "gracias.html")
+    else: 
+        form = ConsultaFormulario()
+
+        return render (req,"contacto.html", {"form":form})
+
+
+def gracias(req):
+    return render(req,'gracias.html')
 

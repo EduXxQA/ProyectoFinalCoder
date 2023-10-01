@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.db import models
+from django.forms import ModelForm
 # Create your models here.
 
 
@@ -45,10 +46,13 @@ class Fundas(models.Model):
         return f'{self.modelo} - {self.tipo} - ${self.precio}'
     
     
-# class Consulta(models.Model):
-#     nombre = models.CharField(max_length=100)
-#     correo = models.EmailField()
-#     mensaje = models.TextField()
+class ConsultaFormulario(models.Model):
+
+    correo = models.EmailField()
+    mensaje = models.TextField()
+    
+
+ 
     
     
 
