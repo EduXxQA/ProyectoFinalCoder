@@ -272,9 +272,9 @@ def editarFunda(req, id):
         })       
         return render(req, "editar_funda.html", {"agregarFunda": agregarFunda, "id": funda.id})     
     
-def administrador (req):
+# def administrador (req):
     
-    return render (req, "administrador.html")
+#     return render (req, "administrador.html")
     
     
     
@@ -405,21 +405,21 @@ def busquedaCelular(req):
 
         
         if celulares and fundas:
-            return render(req,"resultado.html", {"celulares":celulares , "fundas": fundas})
+            return render(req,"resultado_CF.html", {"celulares":celulares , "fundas": fundas})
         
         elif celulares:
 
-            return render (req,"resultado.html",{"celulares": celulares})
+            return render (req,"resultado_CF.html",{"celulares": celulares})
         
         elif fundas:
-            return render (req,"resultado.html",{"fundas": fundas})
+            return render (req,"resultado_CF.html",{"fundas": fundas})
         
     
 
         else: 
-            return render (req,"resultado.html", {"mc": "Modelo no encontrado"})
+            return render (req,"resultado_CF.html", {"mc": "Modelo no encontrado"})
   else:
-      return render(req,"buscar.html")
+      return render(req,"buscar_CF.html")
   
   
 
@@ -428,42 +428,39 @@ def busquedaCelular(req):
       
 
 
-# //////////// Busqueda de Accesorios//////////
-# def busquedaAccesorios(req):
-#   busqueda= req.GET.get("buscar2")
-#   accesorios=Accesorios.objects.all()
+# //////////// BUSQUEDA ACCESORIOS//////////
+def busquedaAccesorios(req):
+  busqueda= req.GET.get("buscar2")
+  accesorios=Accesorios.objects.all()
   
-#   if busqueda:
-#         accesorios =Accesorios.objects.filter(
-#         Q(tipo__icontains = busqueda)
-#         # Q(marca__icontains= busqueda)|
-#         )
+  if busqueda:
+        accesorios =Accesorios.objects.filter(
+        Q(tipo__icontains = busqueda)
+       
+        )
         
         
-#         if accesorios :
-#             return render(req,"resultado.html", {"accesorios":accesorios})
+        if accesorios :
+            return render(req,"resultado_AC.html", {"accesorios":accesorios})
         
         
 
-#         else: 
-#             return render (req,"resultado.html", {"mc": "Accesorio no encontrado"})
-#   else:
-#       return render(req,"buscar.html")
+        else: 
+            return render (req,"resultado_AC.html", {"mc": "Accesorio no encontrado"})
+  else:
+      return render(req,"buscar_AC.html")
   
 
 
 # //////// RESULTADO DE LA BUSQUEDA///////
 def resultadoCelular(req):
-    return render (req, "resultado.html")
+    return render (req, "resultado_CF.html")
 
 
+def  resultadoAC(req):
+    return render (req,'resultado_AC.html')
 
-def galeria (req):
-    
-    
-    lista_celular = Celulares.objects.all()
-    
-    return render(req, "lista_celulares.html", {"lista_celulares": lista_celular})
+
 
 
 def carrito(req): 
