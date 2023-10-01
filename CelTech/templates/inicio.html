@@ -15,7 +15,14 @@
     <H1>E-COMMERCE</H1>
         <p>En esta web tenemos un e-commerce funcional, donde encontraremos distintos Celuares, Fundas y Accesorios.</p>
 
-    {{mensaje}}
+    
+    
+    {% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{mensaje}}
+    {% endif %}
+        
+        
 
 
 </div>   
